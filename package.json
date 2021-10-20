@@ -1,0 +1,22 @@
+{
+  "name": "anycodefingerprint",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rogithub/AnyCodeFingerPrint.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rogithub/AnyCodeFingerPrint/issues"
+  },
+  "homepage": "https://github.com/rogithub/AnyCodeFingerPrint#readme",
+  "dependencies": {
+    "@digitalpersona/devices": "^0.2.6"
+  }
+}
