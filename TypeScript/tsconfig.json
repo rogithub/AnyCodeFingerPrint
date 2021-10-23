@@ -19,6 +19,8 @@
         "node_modules",
         "wwwroot"
     ],
-    "files": ["typings/index.d.ts"],
+    "typeAcquisition": {
+        "include": ["typings/index.d.ts"]
+    },
     "compileOnSave": true
 }
