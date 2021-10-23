@@ -14,10 +14,11 @@
             "dom"
         ],
         "outDir": "dist"
-    },
+    },    
     "exclude": [
         "node_modules",
         "wwwroot"
     ],
+    "files": ["typings/index.d.ts"],
     "compileOnSave": true
 }
