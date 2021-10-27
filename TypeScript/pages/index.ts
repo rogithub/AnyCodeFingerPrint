@@ -1,6 +1,6 @@
 // NOTE: make sure you import only WebSdk typings here, not a WebSdk code!
 // Also make sure this is not a NodeJS module. WebSdk is a browser-only library!
-import { FingerprintReader } from '@digitalpersona/devices';
+import { FingerprintReader, SampleFormat } from '@digitalpersona/devices';
 
 
 // Event handlers.
@@ -9,6 +9,14 @@ let onDeviceDisconnected = () => { console.log('called'); };
 let onQualityReported = () => { console.log('called'); };
 let onSamplesAcquired = () => { console.log('called'); };
 let onReaderError = () => { console.log('called'); };
+
+let init = async (r: FingerprintReader) => {
+    try {
+        await r.startAcquisition(SampleFormat.Intermediate);
+    } catch (err) {
+        console.error(err);
+    }
+}
 
 $(async () => {
     let x = new FingerprintReader();
@@ -28,5 +36,6 @@ $(async () => {
         x.getDeviceInfo(d);
     });
 
+    await init(x);
 });
 
