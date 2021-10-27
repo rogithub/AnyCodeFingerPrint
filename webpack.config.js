@@ -30,11 +30,12 @@ module.exports = {
 
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'wwwwroot/trasp')
+        path: path.resolve(__dirname, 'wwwroot/trasp')
     },
 
     externals: {
-        'ko': 'ko'
+        'ko': 'ko',
+        'WebSdk': 'WebSdk'
     },
 
     resolve: {
