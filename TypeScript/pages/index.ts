@@ -1,7 +1,7 @@
 // NOTE: make sure you import only WebSdk typings here, not a WebSdk code!
 // Also make sure this is not a NodeJS module. WebSdk is a browser-only library!
 import { FingerprintReader, SampleFormat } from '@digitalpersona/devices';
-
+// https://hidglobal.github.io/digitalpersona-devices/tutorial.html
 
 // Event handlers.
 let onDeviceConnected = () => { console.log('called'); }
