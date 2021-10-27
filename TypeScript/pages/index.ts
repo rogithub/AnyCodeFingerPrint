@@ -24,6 +24,9 @@ $(async () => {
     let list = await x.enumerateDevices();
     console.dir(list);
 
-    //x.getDeviceInfo()
+    list.forEach(d => {
+        x.getDeviceInfo(d);
+    });
+
 });
 
