@@ -1,25 +1,29 @@
 // NOTE: make sure you import only WebSdk typings here, not a WebSdk code!
 // Also make sure this is not a NodeJS module. WebSdk is a browser-only library!
-// import '../typings/index'
 import { FingerprintReader } from '@digitalpersona/devices';
 
-export class FingerprintSigninControl {
-    private reader = new FingerprintReader();
 
-    constructor() {
-        this.reader.on("DeviceConnected", this.onDeviceConnected);
-        this.reader.on("DeviceDisconnected", this.onDeviceDisconnected);
-        this.reader.on("QualityReported", this.onQualityReported);
-        this.reader.on("SamplesAcquired", this.onSamplesAcquired);
-        this.reader.on("ErrorOccurred", this.onReaderError);
-    }
+// Event handlers.
+let onDeviceConnected = () => { console.log('called'); }
+let onDeviceDisconnected = () => { console.log('called'); };
+let onQualityReported = () => { console.log('called'); };
+let onSamplesAcquired = () => { console.log('called'); };
+let onReaderError = () => { console.log('called'); };
 
-    // Event handlers.
-    onDeviceConnected = () => { console.log('called'); }
-    onDeviceDisconnected = () => { console.log('called'); };
-    onQualityReported = () => { console.log('called'); };
-    onSamplesAcquired = () => { console.log('called'); };
-    onReaderError = () => { console.log('called'); };
-}
+$(async () => {
+    let x = new FingerprintReader();
 
-console.log("done!");
+    x.on("DeviceConnected", onDeviceConnected);
+    x.on("DeviceDisconnected", onDeviceDisconnected);
+    x.on("QualityReported", onQualityReported);
+    x.on("SamplesAcquired", onSamplesAcquired);
+    x.on("ErrorOccurred", onReaderError);
+
+
+    console.log("devices:");
+    let list = await x.enumerateDevices();
+    console.dir(list);
+
+    //x.getDeviceInfo()
+});
+

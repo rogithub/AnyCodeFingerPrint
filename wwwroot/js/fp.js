@@ -1,4 +1,4 @@
 
 $(() => {
-    let x = new FingerprintSigninControl();
+    console.log("fp.js rodrigo's file");
 });
