@@ -15,9 +15,6 @@ let onSamplesAcquired = (data: SamplesAcquired) => {
     const sampleImageUrl = 'data:image/png;base64,' + x;
     $("#huella").attr("src", sampleImageUrl);
 
-    FingerprintsAuth ait = new FingerprintsAuth();
-
-
     return sampleImageUrl;
 };
 let onReaderError = () => { console.log('called'); };
