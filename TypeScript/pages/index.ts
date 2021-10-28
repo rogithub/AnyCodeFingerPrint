@@ -9,12 +9,14 @@ let onDeviceConnected = () => { console.log('called'); }
 let onDeviceDisconnected = () => { console.log('called'); };
 let onQualityReported = () => { console.log('called'); };
 let onSamplesAcquired = (data: SamplesAcquired) => {
-    const rawImages = data.samples.map(sample =>
-        btoa(Utf8.fromBase64Url(sample.Data))
-    );
+    if (data.samples.length === 0) return;
+    const x = btoa(Utf8.fromBase64Url(data.samples[0] as any));
 
-    const sampleImageUrl = 'data:image/png;base64,' + rawImages[0];
+    const sampleImageUrl = 'data:image/png;base64,' + x;
     $("#huella").attr("src", sampleImageUrl);
+
+    FingerprintsAuth ait = new FingerprintsAuth();
+
 
     return sampleImageUrl;
 };
